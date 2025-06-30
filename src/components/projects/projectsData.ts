@@ -47,8 +47,8 @@ export const academicProjects = [
 export const personalProjects = [
   {
     title: "AIBantu",
-    description: "Mobile assistant for seniors using GPT-4o Mini & YOLOv10, focusing on accessibility design and conversational AI.",
-    tech: ["GPT-4o Mini", "YOLOv10", "Mobile Development"],
+    description: "Mobile assistant for seniors using GPT API & YOLO, focusing on accessibility design and conversational AI.",
+    tech: ["GPT API", "YOLO", "Mobile Development"],
     category: "AI Assistant"
   },
   {
