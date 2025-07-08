@@ -3,13 +3,12 @@ import { Project } from './projectsData';
 
 interface ProjectCardProps {
   project: Project;
-  isPersonal?: boolean;
   index: number;
   isVisible: boolean;
   isScrollingUp?: boolean;
 }
 
-const ProjectCard = ({ project, isPersonal = false, index, isVisible, isScrollingUp = false }: ProjectCardProps) => (
+const ProjectCard = ({ project, index, isVisible, isScrollingUp = false }: ProjectCardProps) => (
   <div 
     className={`glass-effect p-6 rounded-xl transition-all duration-700 group transform ${
       isVisible 
@@ -31,20 +30,15 @@ const ProjectCard = ({ project, isPersonal = false, index, isVisible, isScrollin
     <div className="flex justify-between items-start mb-4">
       <div className="flex items-center space-x-2">
         <div className="w-3 h-3 bg-electric-500 rounded-full" />
-        <span className="text-electric-500 dark:text-electric-400 text-sm font-medium">{project.category}</span>
+        <span className="text-electric-500 dark:text-electric-400 text-xl font-medium">{project.category}</span>
       </div>
-      {!isPersonal && project.semester && (
-        <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-          {project.semester}
-        </span>
-      )}
     </div>
     
-    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-electric-500 dark:group-hover:text-electric-400 transition-colors">
+    <h3 className="text-2xl font-semibold text-foreground mb-3 group-hover:text-electric-500 dark:group-hover:text-electric-400 transition-colors">
       {project.title}
     </h3>
     
-    <p className="text-muted-foreground mb-4 leading-relaxed">
+    <p className="text-white mb-4 leading-relaxed text-xl">
       {project.description}
     </p>
     
@@ -52,7 +46,7 @@ const ProjectCard = ({ project, isPersonal = false, index, isVisible, isScrollin
       {project.tech.map((tech: string, techIndex: number) => (
         <span 
           key={techIndex}
-          className="px-3 py-1 bg-electric-500/20 text-electric-600 dark:text-electric-300 text-xs rounded-full border border-electric-500/30"
+          className="px-3 py-1 bg-electric-500/20 text-electric-600 dark:text-electric-300 text-lg rounded-full border border-electric-500/30"
         >
           {tech}
         </span>

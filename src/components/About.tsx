@@ -11,7 +11,7 @@ const About = () => {
   const education = [
     {
       title: "B.Sc. in Computer Science (Information Technology)",
-      institution: "President University",
+      institution: "President University", 
       location: "Jababeka, Cikarang",
       date: "2023 - Present",
       description: "Currently pursuing a Bachelor's degree with focus on Programming Concepts, Web Development, Database Management, and Artificial Intelligence.",
@@ -21,7 +21,7 @@ const About = () => {
       title: "Senior High School - Social Studies & Science",
       institution: "SMAN 12 Bekasi",
       location: "Bekasi, Indonesia",
-      date: "2020 - 2023",
+      date: "2020 - 2023", 
       description: "Best Student Academic Achievement. Top student in Social Studies (IPS) while consistently excelling in the Science track (IPA).",
       icon: <FaGraduationCap />
     }
@@ -29,7 +29,7 @@ const About = () => {
 
   const experiences = [
     {
-      title: "AI Developer & IT Student",
+      title: "IT Student",
       company: "President University",
       location: "Cikarang, Indonesia",
       date: "2023 - Present",
@@ -84,6 +84,20 @@ const About = () => {
         htmlElement.style.transform = 'translateY(30px)';
         observer.observe(htmlElement);
       });
+
+      // Add custom CSS to move date labels more to the right
+      const style = document.createElement('style');
+      style.textContent = `
+        .vertical-timeline-element-date {
+          margin-right: -60px !important;
+        }
+        @media (max-width: 1170px) {
+          .vertical-timeline-element-date {
+            margin-right: 0 !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
     }, 100);
 
     return () => {
@@ -97,14 +111,14 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div data-animate>
-            <h2 className="text-5xl font-bold text-center mb-4">
+            <h2 className="text-7xl font-bold text-center mb-4">
               About <span className="gradient-text">Me</span>
             </h2>
             
             <div className="w-24 h-1 bg-electric-500 mx-auto mb-16" />
           </div>
           
-          <p className="text-lg text-foreground leading-relaxed mb-8 text-center" data-animate>
+          <p className="text-xl text-white leading-relaxed mb-8 text-center" data-animate>
             I am an Information Technology student at President University, passionate about AI, software engineering, and human-centered design.
             I have experience in developing AI-powered solutions, mobile applications, and web development.
             I am eager to contribute my skills and knowledge to innovative projects that make a positive impact.
@@ -112,7 +126,7 @@ const About = () => {
           
           {/* Education */}
           <div data-animate>
-            <h3 className="text-3xl font-semibold mb-8 text-electric-400 text-center">
+            <h3 className="text-5xl font-semibold mb-8 text-electric-400 text-center">
               Education
             </h3>
           </div>
@@ -127,18 +141,20 @@ const About = () => {
                   <VerticalTimelineElement
                     className="vertical-timeline-element--education"
                     date={item.date}
+                    dateClassName="text-2xl font-bold text-white"
                     iconStyle={{ background: 'rgb(59, 130, 246)', color: '#fff' }}
                     icon={item.icon}
                     contentStyle={{ 
                       background: 'rgba(255, 255, 255, 0.05)', 
                       border: '1px solid rgba(59, 130, 246, 0.3)',
-                      color: '#fff'
+                      color: '#fff',
+                      padding: '2.5rem'
                     }}
                     contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
                   >
-                    <h3 className="vertical-timeline-element-title text-foreground font-semibold text-lg">{item.title}</h3>
-                    <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium">{item.institution}, {item.location}</h4>
-                    <p className="text-muted-foreground mt-2">
+                    <h3 className="vertical-timeline-element-title text-white font-semibold text-3xl mb-3">{item.title}</h3>
+                    <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-2xl mb-5">{item.institution}, {item.location}</h4>
+                    <p className="text-white text-2xl leading-relaxed">
                       {item.description}
                     </p>
                   </VerticalTimelineElement>
@@ -149,7 +165,7 @@ const About = () => {
           
           {/* Experience */}
           <div data-animate>
-            <h3 className="text-3xl font-semibold mb-8 text-electric-400 text-center mt-16">
+            <h3 className="text-5xl font-semibold mb-8 text-electric-400 text-center mt-16">
               Experience
             </h3>
           </div>
@@ -163,18 +179,20 @@ const About = () => {
                 <VerticalTimelineElement
                   className="vertical-timeline-element--work"
                   date={item.date}
+                  dateClassName="text-2xl font-bold text-white"
                   iconStyle={{ background: 'rgb(59, 130, 246)', color: '#fff' }}
                   icon={item.icon}
                   contentStyle={{ 
                     background: 'rgba(255, 255, 255, 0.05)', 
                     border: '1px solid rgba(59, 130, 246, 0.3)',
-                    color: '#fff'
+                    color: '#fff',
+                    padding: '2.5rem'
                   }}
                   contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
                 >
-                  <h3 className="vertical-timeline-element-title text-foreground font-semibold text-lg">{item.title}</h3>
-                  <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium">{item.company}, {item.location}</h4>
-                  <p className="text-muted-foreground mt-2">
+                  <h3 className="vertical-timeline-element-title text-white font-semibold text-3xl mb-3">{item.title}</h3>
+                  <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-2xl mb-5">{item.company}, {item.location}</h4>
+                  <p className="text-white text-2xl leading-relaxed">
                     {item.description}
                   </p>
                 </VerticalTimelineElement>

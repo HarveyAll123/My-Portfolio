@@ -1,18 +1,19 @@
 
 import { useProjectsAnimation } from './projects/useProjectsAnimation';
-import { personalProjects, academicProjects } from './projects/projectsData';
-import ProjectSection from './projects/ProjectSection';
+import { personalProjects, academicProjects, nonTechProjects } from './projects/projectsData';
+import ProjectCard from './projects/ProjectCard';
 
 const Projects = () => {
   const {
     titleRef,
     sectionRef,
     titleScale,
-    showSectionTitles,
     showPersonalProjects,
-    showAcademicProjects,
     isScrollingUp
   } = useProjectsAnimation();
+
+  // Merge all projects into one array
+  const allProjects = [...personalProjects, ...academicProjects, ...nonTechProjects];
 
   return (
     <section ref={sectionRef} id="projects" className="py-20 bg-gradient-to-b from-card/20 to-background min-h-screen">
@@ -31,23 +32,21 @@ const Projects = () => {
             style={{ transform: `scale(${titleScale})` }}
           />
           
-          <ProjectSection
-            title="Personal Projects"
-            projects={personalProjects}
-            isPersonal={true}
-            showSectionTitles={showSectionTitles}
-            showProjects={showPersonalProjects}
-            isScrollingUp={isScrollingUp}
-          />
-          
-          <ProjectSection
-            title="Academic Projects"
-            projects={academicProjects}
-            isPersonal={false}
-            showSectionTitles={showSectionTitles}
-            showProjects={showAcademicProjects}
-            isScrollingUp={isScrollingUp}
-          />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {allProjects.map((project, index) => {
+              const animationIndex = isScrollingUp ? allProjects.length - 1 - index : index;
+              
+              return (
+                <ProjectCard 
+                  key={index} 
+                  project={project} 
+                  index={animationIndex}
+                  isVisible={showPersonalProjects}
+                  isScrollingUp={isScrollingUp}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

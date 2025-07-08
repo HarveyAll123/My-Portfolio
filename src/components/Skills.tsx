@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 
 const Skills = () => {
@@ -113,8 +112,8 @@ const Skills = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-foreground font-medium">{skill.name}</span>
-                        <span className="text-electric-400 text-sm">{skill.level}%</span>
+                        <span className="text-foreground font-medium text-xl">{skill.name}</span>
+                        <span className="text-electric-400 text-xl">{skill.level}%</span>
                       </div>
                       
                       <div className="w-full bg-muted rounded-full h-2">
@@ -144,7 +143,7 @@ const Skills = () => {
                   data-animate
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <span className="text-muted-foreground font-medium">{tool}</span>
+                  <span className="text-white font-medium text-xl">{tool}</span>
                 </div>
               ))}
             </div>
@@ -162,7 +161,7 @@ const Skills = () => {
                   <div className="w-12 h-12 bg-electric-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <div className="w-6 h-6 bg-electric-500 rounded-full" />
                   </div>
-                  <span className="text-foreground font-medium">{skill}</span>
+                  <span className="text-foreground font-medium text-xl">{skill}</span>
                 </div>
               ))}
             </div>

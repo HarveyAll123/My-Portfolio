@@ -2,12 +2,6 @@
 const Contact = () => {
   const contactInfo = [
     {
-      icon: "📞",
-      label: "Phone",
-      value: "+62 812 8746 4800",
-      link: "tel:+6281287464800"
-    },
-    {
       icon: "✉️",
       label: "Email",
       value: "hasan.abdullah5000@gmail.com",
@@ -18,6 +12,12 @@ const Contact = () => {
       label: "LinkedIn",
       value: "linkedin.com/in/hasan-abdullah",
       link: "https://www.linkedin.com/in/hasan-abdullah-5791bb275/"
+    },
+    {
+      icon: "💻",
+      label: "GitHub",
+      value: "github.com/HarveyAll123",
+      link: "https://github.com/HarveyAll123"
     },
     {
       icon: "📍",
@@ -64,8 +64,8 @@ const Contact = () => {
                   >
                     <div className="text-2xl">{info.icon}</div>
                     <div>
-                      <div className="text-sm text-muted-foreground">{info.label}</div>
-                      <div className="text-foreground group-hover:text-electric-400 transition-colors">
+                      <div className="text-xl text-white font-medium">{info.label}</div>
+                      <div className="text-foreground group-hover:text-electric-400 transition-colors text-xl">
                         {info.value}
                       </div>
                     </div>
@@ -83,10 +83,10 @@ const Contact = () => {
               <div className="space-y-6">
                 {goals.map((goal, index) => (
                   <div key={index} className="glass-effect p-6 rounded-lg">
-                    <h4 className="text-lg font-semibold text-electric-300 mb-3">
+                    <h4 className="text-xl font-semibold text-electric-300 mb-3">
                       {goal.term} Goals
                     </h4>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-white leading-relaxed text-xl">
                       {goal.description}
                     </p>
                   </div>
@@ -100,7 +100,7 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold mb-4 text-foreground">
               Ready to collaborate?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-white mb-6 max-w-2xl mx-auto text-xl leading-relaxed">
               I'm eager to stand and learn in hobbies, committed to lifelong learning and technological excellence. 
               Let's connect and create something amazing together!
             </p>

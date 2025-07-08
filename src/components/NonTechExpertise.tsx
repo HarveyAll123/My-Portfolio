@@ -99,6 +99,43 @@ const NonTechExpertise = () => {
     }
   ];
 
+  const projectConnections = [
+    {
+      project: "Jakarta Museums Visitor Study",
+      connections: [
+        {
+          value: "Constructivism",
+          explanation: "Explored how colonial narratives shape visitor identities and museum experiences, revealing how context creates meaning rather than fixed interpretations."
+        },
+        {
+          value: "Internationalism", 
+          explanation: "Engaged with foreign tourists to understand cross-cultural perspectives on Indonesian colonial history."
+        },
+        {
+          value: "Progressive",
+          explanation: "Advocated for decolonizing museum narratives while respecting existing cultural institutions and visitor experiences."
+        }
+      ]
+    },
+    {
+      project: "Three Forms of Fascism Critical Review",
+      connections: [
+        {
+          value: "Research & Policy Analysis",
+          explanation: "Applied rigorous academic methodology to critique political theory, suggesting quantitative evidence and comparative frameworks."
+        },
+        {
+          value: "Constructivism",
+          explanation: "Analyzed how fascist movements construct and reconstruct political identities across different historical contexts."
+        },
+        {
+          value: "Progressive",
+          explanation: "Advocated for improved scholarly methodology while building on existing academic work rather than dismissing it entirely."
+        }
+      ]
+    }
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -142,10 +179,10 @@ const NonTechExpertise = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12" data-animate>
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-4xl font-bold mb-4">
               Where I <span className="gradient-text-alt animate-rainbow">Stand</span>
             </h3>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-white text-2xl max-w-3xl mx-auto">
               My Non-Tech Expertise – Beyond coding and AI, I bring insights into global governance, 
               conflict resolution, and human-centered policy design.
             </p>
@@ -163,20 +200,63 @@ const NonTechExpertise = () => {
                 <div className={`w-12 h-12 bg-gradient-to-r ${area.color} rounded-lg mb-4 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
                   <div className="w-6 h-6 bg-white/20 rounded-full animate-pulse" />
                 </div>
-                <h4 className={`text-lg font-semibold bg-gradient-to-r ${area.color} bg-clip-text text-transparent mb-3`}>
+                <h4 className={`text-2xl font-semibold bg-gradient-to-r ${area.color} bg-clip-text text-transparent mb-3`}>
                   {area.title}
                 </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-white text-xl leading-relaxed">
                   {area.description}
                 </p>
               </div>
             ))}
           </div>
 
+          {/* Values in Action - Project Connections */}
+          <div className="mb-12" data-animate>
+            <h4 className="text-3xl font-bold text-center mb-8">
+              Values in <span className="gradient-text">Action</span>
+            </h4>
+            <p className="text-white text-xl text-center mb-8 max-w-4xl mx-auto">
+              How my non-IT projects demonstrate these political values and expertise areas in practice
+            </p>
+            
+            <div className="space-y-8">
+              {projectConnections.map((project, index) => (
+                <div 
+                  key={index}
+                  className="glass-effect-vibrant p-6 rounded-xl"
+                  data-animate
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <h5 className="text-2xl font-semibold gradient-text mb-4">
+                    {project.project}
+                  </h5>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {project.connections.map((connection, connIndex) => (
+                      <div 
+                        key={connIndex}
+                        className="p-4 rounded-lg bg-gradient-to-r from-white/5 to-transparent border border-electric-500/20 hover:border-electric-500/40 transition-all duration-300"
+                      >
+                        <div className="flex items-center mb-2">
+                          <div className="w-3 h-3 bg-electric-500 rounded-full mr-2" />
+                          <span className="text-electric-400 font-medium text-lg">
+                            {connection.value}
+                          </span>
+                        </div>
+                        <p className="text-white text-base leading-relaxed">
+                          {connection.explanation}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Languages */}
             <div className="glass-effect-vibrant p-6 rounded-xl" data-animate>
-              <h4 className="text-xl font-semibold gradient-text mb-6 flex items-center">
+              <h4 className="text-2xl font-semibold gradient-text mb-6 flex items-center">
                 <div className="w-8 h-8 bg-gradient-to-r from-electric-400 to-purple-400 rounded-full mr-3 animate-pulse" />
                 Multilingual Communication
               </h4>
@@ -185,8 +265,8 @@ const NonTechExpertise = () => {
                   <div key={index} 
                        className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-white/5 to-transparent hover:from-electric-500/10 hover:to-purple-500/10 transition-all duration-300"
                        style={{ animationDelay: `${index * 0.1}s` }}>
-                    <span className="text-foreground font-medium">{item.lang}</span>
-                    <span className="text-electric-300 text-sm bg-electric-500/20 px-2 py-1 rounded-full">{item.level}</span>
+                    <span className="text-white font-medium text-xl">{item.lang}</span>
+                    <span className="text-electric-300 text-lg bg-electric-500/20 px-2 py-1 rounded-full">{item.level}</span>
                   </div>
                 ))}
               </div>
@@ -194,20 +274,20 @@ const NonTechExpertise = () => {
 
             {/* Political Values Snapshot */}
             <div className="glass-effect-vibrant p-6 rounded-xl" data-animate>
-              <h4 className="text-xl font-semibold gradient-text-alt mb-4 flex items-center">
+              <h4 className="text-2xl font-semibold gradient-text-alt mb-4 flex items-center">
                 <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mr-3 animate-pulse" />
                 My PolitiScales Snapshot
               </h4>
-              <p className="text-muted-foreground text-xs mb-6">
+              <p className="text-white text-lg mb-6">
                 Results from PolitiScales.party - percentages show my lean; grey portions represent undecided space
               </p>
               <div className="space-y-6">
                 {politicalValues.map((value, index) => (
                   <div key={index} className="space-y-2" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="flex justify-between items-center text-xs">
+                    <div className="flex justify-between items-center text-lg">
                       <span className="text-electric-400 font-medium">{value.aspect} {value.myPercentage}%</span>
-                      <span className="text-muted-foreground">Neutral {value.neutralPercentage}%</span>
-                      <span className="text-muted-foreground">{value.opposing} {value.opposingPercentage}%</span>
+                      <span className="text-white">Neutral {value.neutralPercentage}%</span>
+                      <span className="text-white">{value.opposing} {value.opposingPercentage}%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-3 flex overflow-hidden shadow-inner">
                       <div 
@@ -225,7 +305,7 @@ const NonTechExpertise = () => {
                         style={{ width: `${value.opposingPercentage}%` }}
                       />
                     </div>
-                    <p className="text-muted-foreground text-xs leading-relaxed">{value.description}</p>
+                    <p className="text-white text-xl leading-relaxed">{value.description}</p>
                   </div>
                 ))}
               </div>
@@ -234,7 +314,7 @@ const NonTechExpertise = () => {
 
           {/* How Values Guide Work */}
           <div className="mt-12 text-center glass-effect-vibrant p-8 rounded-xl" data-animate>
-            <h4 className="text-xl font-semibold gradient-text mb-4">
+            <h4 className="text-2xl font-semibold gradient-text mb-4">
               How These Values Steer My Work
             </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
@@ -248,7 +328,7 @@ const NonTechExpertise = () => {
                   <div className="w-12 h-12 bg-gradient-to-r from-electric-500/30 to-purple-500/30 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                     <div className="w-6 h-6 bg-gradient-to-r from-electric-500 to-purple-500 rounded-full animate-pulse"></div>
                   </div>
-                  <p className="text-muted-foreground text-sm">{text}</p>
+                  <p className="text-white text-lg">{text}</p>
                 </div>
               ))}
             </div>
