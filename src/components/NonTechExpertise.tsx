@@ -216,7 +216,7 @@ const NonTechExpertise = () => {
               Values in <span className="gradient-text">Action</span>
             </h4>
             <p className="text-white text-xl text-center mb-8 max-w-4xl mx-auto">
-              How my non-IT projects demonstrate these political values and expertise areas in practice
+              How my non-Tech projects demonstrate these political values and expertise areas in practice
             </p>
             
             <div className="space-y-8">
