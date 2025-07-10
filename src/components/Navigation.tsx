@@ -1,9 +1,12 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const nameRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,11 +31,48 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (nameRef.current && isHovering) {
+        const rect = nameRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        setMousePos({
+          x: e.clientX - centerX,
+          y: e.clientY - centerY
+        });
+      }
+    };
+
+    if (isHovering) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isHovering]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const getProximityScale = () => {
+    if (!isHovering) return 1;
+    
+    const distance = Math.sqrt(mousePos.x * mousePos.x + mousePos.y * mousePos.y);
+    const maxDistance = 100;
+    const minScale = 1;
+    const maxScale = 1.2;
+    
+    if (distance > maxDistance) return minScale;
+    
+    const scale = minScale + (maxScale - minScale) * (1 - distance / maxDistance);
+    return scale;
   };
 
   const navItems = [
@@ -49,9 +89,21 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold cursor-pointer transition-all duration-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.9)] animate-[color-shift_8s_ease-in-out_infinite]" style={{
-            animation: 'color-shift 8s ease-in-out infinite'
-          }}>
+          <div 
+            ref={nameRef}
+            className="text-2xl font-bold cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.9)] animate-[color-shift_8s_ease-in-out_infinite] transform-gpu" 
+            style={{
+              animation: 'color-shift 8s ease-in-out infinite',
+              transform: `scale(${getProximityScale()})`,
+              transformOrigin: 'center'
+            }}
+            onClick={() => scrollToSection('hero')}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => {
+              setIsHovering(false);
+              setMousePos({ x: 0, y: 0 });
+            }}
+          >
             Hasan Abdulloh
           </div>
           

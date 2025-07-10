@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="text-2xl font-bold gradient-text mb-2">
               Hasan Abdulloh
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-white text-xl">
               AI Developer & IT Professional
             </p>
           </div>
@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="flex space-x-6">
             <a
               href="mailto:hasan.abdullah5000@gmail.com"
-              className="text-gray-400 hover:text-electric-400 transition-colors"
+              className="text-white hover:text-electric-400 transition-colors"
               aria-label="Email"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -31,7 +31,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/hasan-abdullah-5791bb275/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-electric-400 transition-colors"
+              className="text-white hover:text-electric-400 transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -41,7 +41,7 @@ const Footer = () => {
             
             <a
               href="tel:+6281287464800"
-              className="text-gray-400 hover:text-electric-400 transition-colors"
+              className="text-white hover:text-electric-400 transition-colors"
               aria-label="Phone"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-white text-xl">
             © {currentYear} Hasan Abdulloh. All rights reserved. Built with passion and dedication.
           </p>
         </div>

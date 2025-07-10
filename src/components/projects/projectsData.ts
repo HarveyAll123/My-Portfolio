@@ -65,6 +65,33 @@ export const personalProjects = [
   }
 ];
 
+export const nonTechProjects = [
+  {
+    title: "RNDM Apparel",
+    description: "Launched RNDM, a niche T-shirt line that blends computer-science themes with jokes, marketed around campus. Key gains: product-market fit testing and branding experience.",
+    tech: ["Entrepreneurship", "Product Development", "Branding", "Market Research", "Campus Marketing"],
+    category: "Business & Entrepreneurship"
+  },
+  {
+    title: "LPK Cancer Shelter",
+    description: "Community outreach and support work with cancer patients and families, providing assistance and resources during treatment periods.",
+    tech: ["Community Outreach", "Patient Support", "Resource Coordination", "Volunteer Management"],
+    category: "Community Service"
+  },
+  {
+    title: "Jakarta Museums Visitor Study",
+    description: "Interviewed foreign tourists and locals at six Jakarta museums, producing a comprehensive 100+ page report on visitor experiences. Met with historians and documented visitor feedback on exhibitions, including colonial perspectives and hands-on workshops.",
+    tech: ["Field Research", "Interviews", "Report Writing", "Cultural Analysis"],
+    category: "Research & Analysis"
+  },
+  {
+    title: "Three Forms of Fascism Critical Review",
+    description: "Created a 30-slide academic critique of Lauren Sweger-Hollingsworth's working paper, analyzing classical, neo, and post-modern fascism taxonomy. Provided constructive feedback on methodology and suggested improvements including quantitative evidence and broader case studies.",
+    tech: ["Academic Writing", "Critical Analysis", "Research Methodology", "Presentation Design"],
+    category: "Academic Research"
+  }
+];
+
 export interface Project {
   title: string;
   description: string;
