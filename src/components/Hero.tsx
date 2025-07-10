@@ -182,8 +182,17 @@ const Hero = () => {
               </button>
               
               <a 
-                href="#about" 
+                href="https://silver-gwendolyn-73.tiiny.site" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 border border-electric-500 text-electric-400 hover:bg-electric-500 hover:text-foreground font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                View Resume
+              </a>
+              
+              <a 
+                href="#about" 
+                className="px-8 py-4 border border-electric-500/50 text-electric-400/80 hover:border-electric-500 hover:text-electric-400 font-semibold rounded-lg transition-all duration-300 hover:scale-105"
               >
                 Learn More
               </a>
