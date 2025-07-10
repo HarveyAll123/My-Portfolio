@@ -80,7 +80,7 @@ export const nonTechProjects = [
   },
   {
     title: "Jakarta Museums Visitor Study",
-    description: "Interviewed foreign tourists and locals at six Jakarta museums, producing a comprehensive 100+ page scientific paper on visitor experiences. Met with historian and documented visitor feedback on exhibitions, including colonial perspectives and hands-on workshops.",
+    description: "Interviewed foreign tourists and locals at six Jakarta museums, producing a comprehensive 100+ page scientific paper on visitor and guide comparisons and experiences. Met with historian and documented visitor feedback on exhibitions, including colonial perspectives and hands-on workshops.",
     tech: ["Field Research", "Interviews", "Report Writing", "Cultural Analysis"],
     category: "Research & Analysis"
   },
