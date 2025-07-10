@@ -30,7 +30,7 @@ const Contact = () => {
   const goals = [
     {
       term: "Short-term",
-      description: "Apply AI and software engineering expertise in high-impact internships or junior roles that demand innovation and leadership."
+      description: "Apply AI and software engineering expertise in high-impact junior roles that demand innovation and leadership."
     },
     {
       term: "Long-term",
