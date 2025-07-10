@@ -68,8 +68,8 @@ export const personalProjects = [
 export const nonTechProjects = [
   {
     title: "RNDM Apparel",
-    description: "Launched RNDM, a niche T-shirt line that blends computer-science themes with jokes, marketed around campus. Key gains: product-market fit testing and branding experience.",
-    tech: ["Entrepreneurship", "Product Development", "Branding", "Market Research", "Campus Marketing"],
+    description: "Launched RNDM, a niche T-shirt line that blends computer-science themes with twist of jokes.",
+    tech: ["Entrepreneurship", "Product Development", "Branding", "Market Research"],
     category: "Business & Entrepreneurship"
   },
   {
@@ -80,7 +80,7 @@ export const nonTechProjects = [
   },
   {
     title: "Jakarta Museums Visitor Study",
-    description: "Interviewed foreign tourists and locals at six Jakarta museums, producing a comprehensive 100+ page report on visitor experiences. Met with historians and documented visitor feedback on exhibitions, including colonial perspectives and hands-on workshops.",
+    description: "Interviewed foreign tourists and locals at six Jakarta museums, producing a comprehensive 100+ page scientific paper on visitor experiences. Met with historian and documented visitor feedback on exhibitions, including colonial perspectives and hands-on workshops.",
     tech: ["Field Research", "Interviews", "Report Writing", "Cultural Analysis"],
     category: "Research & Analysis"
   },
