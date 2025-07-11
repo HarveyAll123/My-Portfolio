@@ -37,7 +37,7 @@ const About = () => {
       icon: <FaBriefcase />
     },
     {
-      title: "Technology and Communication Division Head",
+      title: "Technology & Communication Division Head",
       company: "High School Student Council (OSIS)",
       location: "Bekasi, Indonesia",
       date: "2021 - 2023",
@@ -47,21 +47,32 @@ const About = () => {
   ];
 
   useEffect(() => {
-    const animatedElements = new Set<HTMLElement>();
+    let lastScrollY = window.scrollY;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const element = entry.target as HTMLElement;
+          const currentScrollY = window.scrollY;
+          const isScrollingDown = currentScrollY > lastScrollY;
           
-          // Only animate elements that haven't been animated yet
           if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-            if (!animatedElements.has(element)) {
-              element.style.opacity = '1';
-              element.style.transform = 'translateY(0)';
-              animatedElements.add(element);
+            // Animate based on scroll direction
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          } else {
+            // Reset animation based on scroll direction
+            element.style.opacity = '0';
+            if (isScrollingDown) {
+              // Coming from top, animate from bottom
+              element.style.transform = 'translateY(30px)';
+            } else {
+              // Coming from bottom, animate from top
+              element.style.transform = 'translateY(-30px)';
             }
           }
+          
+          lastScrollY = currentScrollY;
         });
       },
       {
