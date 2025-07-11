@@ -37,7 +37,7 @@ const About = () => {
       icon: <FaBriefcase />
     },
     {
-      title: "Technology & Communication Division Head",
+      title: "Technology and Communication Division Head",
       company: "High School Student Council (OSIS)",
       location: "Bekasi, Indonesia",
       date: "2021 - 2023",
@@ -47,28 +47,32 @@ const About = () => {
   ];
 
   useEffect(() => {
+    const animatedElements = new Set<HTMLElement>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const element = entry.target as HTMLElement;
-          if (entry.isIntersecting) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-          } else {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
+          
+          // Only animate elements that haven't been animated yet
+          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+            if (!animatedElements.has(element)) {
+              element.style.opacity = '1';
+              element.style.transform = 'translateY(0)';
+              animatedElements.add(element);
+            }
           }
         });
       },
       {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: [0, 0.1, 0.3],
+        rootMargin: '-80px 0px -20px 0px' // Account for navbar height
       }
     );
 
     const timer = setTimeout(() => {
-      const animatedElements = sectionRef.current?.querySelectorAll('[data-animate]');
-      animatedElements?.forEach(element => {
+      const elements = sectionRef.current?.querySelectorAll('[data-animate]');
+      elements?.forEach(element => {
         const htmlElement = element as HTMLElement;
         htmlElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         htmlElement.style.opacity = '0';
@@ -148,13 +152,17 @@ const About = () => {
                       background: 'rgba(255, 255, 255, 0.05)', 
                       border: '1px solid rgba(59, 130, 246, 0.3)',
                       color: '#fff',
-                      padding: '2.5rem'
+                      padding: '1.5rem',
+                      borderRadius: '12px',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto'
                     }}
                     contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
                   >
-                    <h3 className="vertical-timeline-element-title text-white font-semibold text-3xl mb-3">{item.title}</h3>
-                    <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-2xl mb-5">{item.institution}, {item.location}</h4>
-                    <p className="text-white text-2xl leading-relaxed">
+                    <h3 className="vertical-timeline-element-title text-white font-semibold text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-3 break-words">{item.title}</h3>
+                    <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-5 break-words">{item.institution}, {item.location}</h4>
+                    <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed break-words">
                       {item.description}
                     </p>
                   </VerticalTimelineElement>
@@ -176,26 +184,30 @@ const About = () => {
                 key={index}
                 data-timeline-element
               >
-                <VerticalTimelineElement
-                  className="vertical-timeline-element--work"
-                  date={item.date}
-                  dateClassName="text-2xl font-bold text-white"
-                  iconStyle={{ background: 'rgb(59, 130, 246)', color: '#fff' }}
-                  icon={item.icon}
-                  contentStyle={{ 
-                    background: 'rgba(255, 255, 255, 0.05)', 
-                    border: '1px solid rgba(59, 130, 246, 0.3)',
-                    color: '#fff',
-                    padding: '2.5rem'
-                  }}
-                  contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
-                >
-                  <h3 className="vertical-timeline-element-title text-white font-semibold text-3xl mb-3">{item.title}</h3>
-                  <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-2xl mb-5">{item.company}, {item.location}</h4>
-                  <p className="text-white text-2xl leading-relaxed">
-                    {item.description}
-                  </p>
-                </VerticalTimelineElement>
+                  <VerticalTimelineElement
+                    className="vertical-timeline-element--work"
+                    date={item.date}
+                    dateClassName="text-2xl font-bold text-white"
+                    iconStyle={{ background: 'rgb(59, 130, 246)', color: '#fff' }}
+                    icon={item.icon}
+                    contentStyle={{ 
+                      background: 'rgba(255, 255, 255, 0.05)', 
+                      border: '1px solid rgba(59, 130, 246, 0.3)',
+                      color: '#fff',
+                      padding: '1.5rem',
+                      borderRadius: '12px',
+                      wordWrap: 'break-word',
+                      overflowWrap: 'break-word',
+                      hyphens: 'auto'
+                    }}
+                    contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
+                  >
+                    <h3 className="vertical-timeline-element-title text-white font-semibold text-xl sm:text-2xl lg:text-3xl mb-2 sm:mb-3 break-words">{item.title}</h3>
+                    <h4 className="vertical-timeline-element-subtitle text-electric-400 font-medium text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-5 break-words">{item.company}, {item.location}</h4>
+                    <p className="text-white text-lg sm:text-xl lg:text-2xl leading-relaxed break-words">
+                      {item.description}
+                    </p>
+                  </VerticalTimelineElement>
               </div>
             ))}
           </VerticalTimeline>

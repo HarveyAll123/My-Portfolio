@@ -91,7 +91,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center">
           <div 
             ref={nameRef}
-            className="text-2xl font-bold cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.9)] animate-[color-shift_8s_ease-in-out_infinite] transform-gpu" 
+            className="text-2xl font-bold cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.9)] transform-gpu" 
             style={{
               animation: 'color-shift 8s ease-in-out infinite',
               transform: `scale(${getProximityScale()})`,
