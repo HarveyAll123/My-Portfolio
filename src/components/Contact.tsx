@@ -1,29 +1,39 @@
 
 const Contact = () => {
+  const handleLocationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const googleMapsUrl = "https://www.google.com/maps/place/Bekasi,+Kota+Bks,+Jawa+Barat,+Indonesia/@-6.2845331,106.8909757,12z/data=!3m1!4b1!4m6!3m5!1s0x2e698c6900964f69:0xd00495351896398!8m2!3d-6.2382699!4d106.9755726!16s%2Fg%2F12ll1ykqt?entry=ttu&g_ep=EgoyMDI1MDcwOC4wIKXMDSoASAFQAw%3D%3D";
+    window.open(googleMapsUrl, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: "✉️",
       label: "Email",
       value: "hasan.abdullah5000@gmail.com",
-      link: "mailto:hasan.abdullah5000@gmail.com"
+      link: "mailto:hasan.abdullah5000@gmail.com",
+      onClick: undefined
     },
     {
       icon: "💼",
       label: "LinkedIn",
       value: "linkedin.com/in/hasan-abdullah",
-      link: "https://www.linkedin.com/in/hasan-abdullah-5791bb275/"
+      link: "https://www.linkedin.com/in/hasan-abdullah-5791bb275/",
+      onClick: undefined
     },
     {
       icon: "💻",
       label: "GitHub",
       value: "github.com/HarveyAll123",
-      link: "https://github.com/HarveyAll123"
+      link: "https://github.com/HarveyAll123",
+      onClick: undefined
     },
     {
       icon: "📍",
       label: "Location",
       value: "Bekasi City, Indonesia",
-      link: "#"
+      link: "#",
+      onClick: handleLocationClick
     }
   ];
 
@@ -60,7 +70,8 @@ const Contact = () => {
                   <a
                     key={index}
                     href={info.link}
-                    className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
+                    onClick={info.onClick}
+                    className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 group cursor-pointer"
                   >
                     <div className="text-lg md:text-2xl flex-shrink-0">{info.icon}</div>
                     <div className="min-w-0 flex-1">
