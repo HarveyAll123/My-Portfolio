@@ -48,24 +48,24 @@ const Contact = () => {
           
           <div className="w-24 h-1 bg-electric-500 mx-auto mb-16" />
           
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 mb-16 max-w-full px-4 sm:px-6 md:px-0">
             {/* Contact Information */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-8 text-electric-400">
+            <div className="mx-auto w-full max-w-md md:max-w-none">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 md:mb-8 text-electric-400 text-center md:text-left">
                 Contact Information
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.link}
-                    className="flex items-center space-x-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
+                    className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 glass-effect rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
                   >
-                    <div className="text-2xl">{info.icon}</div>
-                    <div>
-                      <div className="text-xl text-white font-medium">{info.label}</div>
-                      <div className="text-foreground group-hover:text-electric-400 transition-colors text-xl">
+                    <div className="text-lg md:text-2xl flex-shrink-0">{info.icon}</div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm sm:text-base md:text-xl text-white font-medium">{info.label}</div>
+                      <div className="text-foreground group-hover:text-electric-400 transition-colors text-sm sm:text-base md:text-xl break-words">
                         {info.value}
                       </div>
                     </div>
@@ -75,18 +75,18 @@ const Contact = () => {
             </div>
             
             {/* Goals */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-8 text-electric-400">
+            <div className="mx-auto w-full max-w-md md:max-w-none">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 md:mb-8 text-electric-400 text-center md:text-left">
                 Career Goals
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {goals.map((goal, index) => (
-                  <div key={index} className="glass-effect p-6 rounded-lg">
-                    <h4 className="text-xl font-semibold text-electric-300 mb-3">
+                  <div key={index} className="glass-effect p-4 md:p-6 rounded-lg">
+                    <h4 className="text-base sm:text-lg md:text-xl font-semibold text-electric-300 mb-2 md:mb-3">
                       {goal.term} Goals
                     </h4>
-                    <p className="text-white leading-relaxed text-xl">
+                    <p className="text-white leading-relaxed text-sm sm:text-base md:text-xl">
                       {goal.description}
                     </p>
                   </div>

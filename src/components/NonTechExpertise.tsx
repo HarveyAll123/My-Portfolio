@@ -179,10 +179,10 @@ const NonTechExpertise = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12" data-animate>
-            <h3 className="text-4xl font-bold mb-4">
+            <h3 className="text-2xl sm:text-4xl font-bold mb-4">
               Where I <span className="gradient-text-alt animate-rainbow">Stand</span>
             </h3>
-            <p className="text-white text-2xl max-w-3xl mx-auto">
+            <p className="text-white text-lg sm:text-2xl max-w-3xl mx-auto">
               My Non-Tech Expertise – Beyond coding and AI, I bring insights into global governance, 
               conflict resolution, and human-centered policy design.
             </p>
@@ -200,10 +200,10 @@ const NonTechExpertise = () => {
                 <div className={`w-12 h-12 bg-gradient-to-r ${area.color} rounded-lg mb-4 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
                   <div className="w-6 h-6 bg-white/20 rounded-full animate-pulse" />
                 </div>
-                <h4 className={`text-2xl font-semibold bg-gradient-to-r ${area.color} bg-clip-text text-transparent mb-3`}>
+                <h4 className={`text-lg sm:text-2xl font-semibold bg-gradient-to-r ${area.color} bg-clip-text text-transparent mb-3`}>
                   {area.title}
                 </h4>
-                <p className="text-white text-xl leading-relaxed">
+                <p className="text-white text-base sm:text-xl leading-relaxed">
                   {area.description}
                 </p>
               </div>
@@ -253,10 +253,10 @@ const NonTechExpertise = () => {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 max-w-full px-4 sm:px-6 lg:px-0">
             {/* Languages */}
-            <div className="glass-effect-vibrant p-6 rounded-xl" data-animate>
-              <h4 className="text-2xl font-semibold gradient-text mb-6 flex items-center">
+            <div className="glass-effect-vibrant p-4 sm:p-6 rounded-xl" data-animate>
+              <h4 className="text-lg sm:text-2xl font-semibold gradient-text mb-6 flex items-center">
                 <div className="w-8 h-8 bg-gradient-to-r from-electric-400 to-purple-400 rounded-full mr-3 animate-pulse" />
                 Multilingual Communication
               </h4>
@@ -265,26 +265,26 @@ const NonTechExpertise = () => {
                   <div key={index} 
                        className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-white/5 to-transparent hover:from-electric-500/10 hover:to-purple-500/10 transition-all duration-300"
                        style={{ animationDelay: `${index * 0.1}s` }}>
-                    <span className="text-white font-medium text-xl">{item.lang}</span>
-                    <span className="text-electric-300 text-lg bg-electric-500/20 px-2 py-1 rounded-full">{item.level}</span>
+                    <span className="text-white font-medium text-base sm:text-xl">{item.lang}</span>
+                    <span className="text-electric-300 text-xs sm:text-sm lg:text-lg bg-electric-500/20 px-2 sm:px-4 lg:px-6 py-1 sm:py-2 rounded-full text-center flex-shrink-0 max-w-[45%] leading-tight">{item.level}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Political Values Snapshot */}
-            <div className="glass-effect-vibrant p-6 rounded-xl" data-animate>
-              <h4 className="text-2xl font-semibold gradient-text-alt mb-4 flex items-center">
+            <div className="glass-effect-vibrant p-4 sm:p-6 rounded-xl" data-animate>
+              <h4 className="text-lg sm:text-2xl font-semibold gradient-text-alt mb-4 flex items-center">
                 <div className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mr-3 animate-pulse" />
                 My PolitiScales Snapshot
               </h4>
-              <p className="text-white text-lg mb-6">
+              <p className="text-white text-sm sm:text-lg mb-6">
                 Results from PolitiScales.party - percentages show my lean; grey portions represent undecided space
               </p>
               <div className="space-y-6">
                 {politicalValues.map((value, index) => (
                   <div key={index} className="space-y-2" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="flex justify-between items-center text-lg">
+                    <div className="flex justify-between items-center text-xs sm:text-lg">
                       <span className="text-electric-400 font-medium">{value.aspect} {value.myPercentage}%</span>
                       <span className="text-white">Neutral {value.neutralPercentage}%</span>
                       <span className="text-white">{value.opposing} {value.opposingPercentage}%</span>
@@ -305,7 +305,7 @@ const NonTechExpertise = () => {
                         style={{ width: `${value.opposingPercentage}%` }}
                       />
                     </div>
-                    <p className="text-white text-xl leading-relaxed">{value.description}</p>
+                    <p className="text-white text-sm sm:text-xl leading-relaxed">{value.description}</p>
                   </div>
                 ))}
               </div>

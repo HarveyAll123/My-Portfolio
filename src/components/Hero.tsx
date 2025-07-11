@@ -201,16 +201,14 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll Indicator - Only show on non-touch devices and when hero section is visible */}
-      {!isTouchDevice && (
-        <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-opacity duration-500 ${
-          showScrollIndicator ? 'opacity-100' : 'opacity-0'
-        }`}>
-          <div className="w-6 h-10 border-2 border-electric-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-electric-400 rounded-full mt-2 animate-pulse" />
-          </div>
+      {/* Scroll Indicator - Hide on mobile/smartphone devices */}
+      <div className={`hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-opacity duration-500 ${
+        showScrollIndicator ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <div className="w-6 h-10 border-2 border-electric-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-electric-400 rounded-full mt-2 animate-pulse" />
         </div>
-      )}
+      </div>
     </section>
   );
 };
